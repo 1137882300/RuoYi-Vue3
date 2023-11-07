@@ -75,6 +75,7 @@ const { sys_normal_disable } = proxy.useDict("sys_normal_disable");
 const userList = ref([]);
 const visible = ref(false);
 const total = ref(0);
+//创建了一个响应式的数组 userIds，初始值为空数组。
 const userIds = ref([]);
 
 const queryParams = reactive({
@@ -97,6 +98,7 @@ function clickRow(row) {
 }
 // 多选框选中数据
 function handleSelectionChange(selection) {
+  //将 selection 数组中每个对象的 userId 属性提取出来，形成一个新的数组，并赋值给 userIds。
   userIds.value = selection.map(item => item.userId);
 }
 // 查询表数据
