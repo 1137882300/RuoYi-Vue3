@@ -1,5 +1,7 @@
 <template>
   <div class="app-container">
+
+    <!--  搜索表单  -->
     <el-form :model="queryParams" ref="queryRef" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="字典名称" prop="dictName">
         <el-input
@@ -50,6 +52,7 @@
       </el-form-item>
     </el-form>
 
+    <!--  操作模块  -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button
@@ -106,6 +109,7 @@
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
+    <!--  列表区域  -->
     <el-table v-loading="loading" :data="typeList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center"/>
       <el-table-column label="字典编号" align="center" prop="dictId"/>
@@ -140,6 +144,7 @@
       </el-table-column>
     </el-table>
 
+    <!--  列表底部的分页区  -->
     <pagination
         v-show="total > 0"
         :total="total"
@@ -178,6 +183,7 @@
         </div>
       </template>
     </el-dialog>
+
   </div>
 </template>
 
